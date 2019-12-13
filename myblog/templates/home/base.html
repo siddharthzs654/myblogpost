@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Complete Javascript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- Javascript Bundle -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+<!-- FontAwesome Kit -->
+    <script src="https://kit.fontawesome.com/081bacb86f.js" crossorigin="anonymous"></script>
+
+<!-- Complete Css -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+
+
+    <style>
+    body{
+        background-color:#ccc;
+    }
+    nav{
+        box-shadow: 0 0 10px 2px #999;
+    }
+    
+    .searchbox{ position: relative; width: 50%; }
+    .searchbox input{ 
+        text-indent: 10px;
+        border:none; 
+        border-radius: 0;
+        border-bottom: 2px solid #ccc;
+        background: transparent;
+        }
+    .searchbox .fa-search{
+        position: absolute;
+        top:6px;
+        right: 10px;
+        font-size: 14px;
+        color: #aaa;
+
+    }
+
+    .searchbox input:focus{
+        outline: none;
+        background: none;
+        box-shadow: none;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+        <a class="navbar-brand"  href="">MY BLOG</a>
+        <form class="d-none form-inline searchbox mx-auto" action="">
+            <input class="form-control w-100" type="search" name="searchbox" id="searchbox">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </form>
+        <div class="ml-auto">
+            <button class="btn btn-sm" onclick="togglesearchbar()"><i class="fa fa-search text-white" aria-hidden="true"></i></button>
+            <!-- <span style="font-weight: 200; color: white;font-size: x-large; margin-right: 2px;">|</span> -->
+            <button class="btn btn-sm p-1" title="leave a note"><i class="fa fa-thumb-tack text-danger" aria-hidden="true"></i></button>
+            <button class="btn btn-sm p-1" title="share"><i class="fa fa-share-alt text-primary" aria-hidden="true"></i></button>
+
+
+            <!-- Search, Profile, Contact, Message, Share, -->
+        </div>
+    </nav>
+    <script>
+        function togglesearchbar(){
+            console.log("hello");
+            $('.searchbox').hide();
+        }
+    </script>
+
+</body>
+</html>
