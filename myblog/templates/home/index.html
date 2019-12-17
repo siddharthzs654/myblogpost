@@ -1,8 +1,152 @@
 {% extends "home/base.html" %}
+{% load static %}
+
+
 
 {% block content %}
+<!-- Right Side bar -->
+<!-- Newsletter or Subscribe -->
+<!-- Events and Updates  -->
+
+<!-- Left Side bar -->
+<!-- Menubar maybe -->
+<style>
+    .site-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .site-header {
+        position: relative;
+        padding: 12px 0;
+        color: #fff;
+        background-color: #090a0b no repeat 50%;
+
+        display: flex;
+        height: 65vh;
+        width: 100vw;
+        padding: auto;
+        padding: 0 4vw;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        background-image: url({% static 'stargazzing/simon.jpg' %});
+        background-size: cover;
 
 
-<h1>Hello World</h1>
+    }
+
+    .site-header-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10vw 4vw;
+        min-height: 200px;
+        max-height: 450px;
+        text-align: center;
+        width: 100%;
+        max-width: 980px;
+    }
+
+    .header-wrapper {
+        width: 100%;
+        padding: 10px;
+        background-color: #2b303b;
+        opacity: 0.9;
+        color: #eee;
+    }
+
+
+    .site-title {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 0;
+    }
+
+    .site-subtitle {
+        font-size: 2rem;
+        font-weight: 300;
+        letter-spacing: 1px;
+        opacity: .8;
+    }
+
+    .site-main {
+        z-index: 100;
+        flex-grow: 1;
+        position: relative;
+        padding: 0 4vw;
+    }
+
+    .mydiv{
+        height: 400px;
+        width: 400px;
+     
+        font-size: 4rem;
+        border: 2px solid black;
+    }
+    .post-items{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+
+
+    @media (max-width: 610px) {
+        .site-title {
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        .site-subtitle {
+            font-size: 1rem;
+            font-weight: 100;
+        }
+    }
+
+
+    @media (max-width: 610px) {
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .site-subtitle {
+            font-size: 1rem;
+            font-weight: 100;
+        }
+    }
+</style>
+<div class="site-wrapper">
+    <header class="site-header">
+        <div class="site-header-content">
+            <div class="header-wrapper">
+                <h1 class="site-title">Siddharth Choudhary</h1>
+                <h5 class="site-subtitle">I make dumb things. </h5>
+
+            </div>
+            <!-- <h5>Tall, Loner, Huff, Dumb, Geek</h5> -->
+        </div>
+    </header>
+    <main class="site-main">
+        <div class="inner">
+            <div class="post-items">
+                <div class="mydiv">1</div>
+                <div class="mydiv">2</div>
+                <div class="mydiv">3</div>
+                <div class="mydiv">4</div>
+                <div class="mydiv">5</div>
+            </div>
+
+
+        </div>
+
+    </main>
+</div>
+
 
 {% endblock content %}
