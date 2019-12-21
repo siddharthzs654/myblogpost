@@ -1,14 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from . import models
+from .models import Posts
 # Create your views here.
 
+content = {
+    'posts': Posts.objects.all()
+}
 
 def home(request):
+    return render(request, 'home/index.html',content)
 
-    return render(request, 'home/index.html', {'post': models.Articles.objects.all()})
-
-
-def base(request):
-    return render(request, 'home/base.html')
