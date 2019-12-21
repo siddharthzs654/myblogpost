@@ -5,7 +5,7 @@ from .models import Posts
 # Create your views here.
 
 content = {
-    'posts': Posts.objects.all()
+    'posts': Posts.objects.all()[::-1]
 }
 
 def home(request):

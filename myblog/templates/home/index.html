@@ -129,6 +129,12 @@
         text-decoration: none;
         background-color: transparent;
     }
+    a:hover{
+        text-decoration: none;
+        color: 26a8ed;
+    }
+
+
     .post-card-image{
         background: #c5d2d9 no-repeat 50%;
         background-size: cover;
@@ -140,10 +146,61 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        flex: 0 1 357px;
+        flex: 0 1 400px;
     }
 
+    .post-card-content-link{
+        padding: 30px 40px 0;
+        position: relative;
+        display: block;
+        color: #15171a;
 
+    }
+
+    .post-card-tags{
+        display: block;
+        margin-bottom: 4px;
+        color: #738a94;
+        font-size: 1.2rem;
+        line-height: 1.15em;
+        font-weight: 500;
+        letter-spacing: .5px;
+        text-transform: uppercase;
+    }
+
+    .post-card-title{
+        margin-top: 0;
+        margin: 1.53m 0 .5em;
+        font-size: 2.6rem;
+    }
+
+    .post-card-excerpt{
+        font-family: Georgia, serif;
+    }
+
+    .post-card-excerpt p {
+        font-size: 1rem;
+        line-height: 1.55em;
+    }
+
+    .post-card-meta{
+        padding: 0 40px 30px;
+    }
+
+    .author-profile.image{
+        maring-right: 5px;
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        object-fit: cover;
+    }
+
+    .post-card-author{
+        font-size:.8rem;
+        font-weight: 500;
+        letter-spacing: .5px;
+        text-transform: uppercase;
+    }
     
 
    
@@ -203,7 +260,7 @@
                         </header>
                         <section class="post-card-excerpt">
                             <p>
-                                {{ p.content|truncatewords:20 }}
+                                {{ p.content|truncatewords:30 }}
                             </p>
                         </section>
                     </a>
