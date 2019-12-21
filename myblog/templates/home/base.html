@@ -67,6 +67,7 @@
 
 
         #searchinput {
+            font-size: 1rem;
             position: absolute;
             bottom: 0;
             right: -150px;
@@ -136,7 +137,15 @@
     </script>
 
 
-
+    <div>
+    {% if messages %}
+        {% for m in messages %}
+            <div class="alert alert-{{m.tags }} w-100" style="position: absolute; z-index: 100">
+                {{ m }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    </div>
     {% block content %}
     {% endblock content %}
 
