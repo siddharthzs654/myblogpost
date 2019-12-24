@@ -1,0 +1,40 @@
+{% extends "home/base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="profile-view">
+        <div class="row my-5">
+            <div class="col-3">
+                <div class="card card-body h-100">
+                    <img class="rounded-circle" src="{{ user.profile.image.url }}" alt="" height="200px" width="200px">
+                    <h1> {{ user.username }} </h1>
+                    My Image and short Info
+                    contact
+                </div>
+               
+            </div>
+            <div class="col-9">
+                <div class="card card-body h-100">
+                    Summary About Me 
+                    {{ user.profile.about }}
+                </div>
+                
+            </div>
+        </div>
+        <div class="row my-6">
+            <div class="col-6">
+                <div class="card card-body h-100">
+                    List of pages written by Him
+                </div>
+                
+            </div>
+            <div class="col-6">
+                <div class="card card-body h-100">
+                    List of pages written by Him
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content%}
