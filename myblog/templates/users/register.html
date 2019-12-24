@@ -3,11 +3,13 @@
 {% block content %}
 
 <style>
+ 
     .register-content{
+        max-width: 900px;
         
-        margin: 10vh 0 10vh 0;
+        margin: 5vh 0 5vh 0;
         background-color: #fff;
-        padding: 5vh;
+        padding: 5vh; 
      
         font-size: 1rem;
         overflow: hidden;
@@ -18,14 +20,19 @@
     .register-content:hover{
         box-shadow: 0 0 2px 1px rgba(49,30,24,.5);
     }
+
+    #hint_id_password1, #hint_id_password2, #hint_id_username{
+        display: none;
+    }
 </style>
+
 <div class="container">
-<div class="container register-content">
+<div class="mx-md-5 register-content">
     <div class="content-section">
         <form action="" method="post">
              {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4"> Join Today</legend>
+                <legend class="border-bottom mb-5"> Join Today</legend>
 
                 {{ registerform|crispy }}
             </fieldset>
