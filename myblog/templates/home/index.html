@@ -91,21 +91,23 @@
         margin: 0 auto;
         max-width: 1240px;
         width: 100%;
+        margin-top: -100px;
     }
 
     .post-feed{
-        margin-top: -70px;
+        
         padding-top: 0;
-        display: felx;
+        display: flex;
         position: relative;
         flex-wrap: wrap;
         margin: 0 -20px;
         padding: 40px 0 0;
     }
 
-    .post-card:nth-child(6n+1):not(.no-image){
+    .post-card:nth-child(4n+1):not(.no-image){
         flex: 1 1 100%;
         flex-direction: row;
+    
     }
 
     .post-card{
@@ -119,6 +121,9 @@
         box-shadow: 8px 14px 38px rgba(39,44,49,0.4), 1px 3px 8px rgba(39,44,49,0.2);
         transition: all .5s ease;
         transition-delay: 0ms;
+        
+        flex: 1 1 300px;
+        flex-direction: column;
     }
     .post-card:hover{
         box-shadow: 1px 4px 10px rgba(39,44,49,.06), 0 0 4px rgba(39,44,49,.03);
@@ -126,11 +131,14 @@
 
     .post-card-image-link{
         position: relative;
-        flex: 1 1 auto;
-        border-radius: 5px 0 0 5px;
+        border-radius: 5px 5px 0 0;
         display: block;
         overflow: hidden;
-
+    }
+    .post-card:nth-child(4n+1):not(.no-image) .post-card-image-link{
+        position: relative;
+        flex: 1 1 auto;
+        border-radius: 5px 0 0 5px;
     }
 
     a{
@@ -140,13 +148,24 @@
     }
     a:hover{
         text-decoration: none;
-        color: 26a8ed;
+        color: #26a8ed;
+    }
+    a:visited{
+        border: none;
+        text-decoration: none;
     }
 
 
     .post-card-image{
+  
         background: #c5d2d9 no-repeat 50%;
         background-size: cover;
+        height: 200px;
+        widows: auto;
+    
+    }
+    .post-card:nth-child(4n+1):not(.no-image) .post-card-image{
+        position: absolute;
         width: 100%;
         height: 100%;
     }
@@ -155,15 +174,20 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        flex: 0 1 400px;
+       
+    }
+    .post-card:nth-child(4n+1):not(.no-image) .post-card-content{
+        flex: 0 1 475px;
     }
 
     .post-card-content-link{
-        padding: 30px 40px 0;
         position: relative;
         display: block;
         color: #15171a;
-
+        padding: 25px 25px 0;
+    }
+    .post-card:nth-child(4n+1):not(.no-image)  .post-card-content-link{
+        padding: 30px 40px 0;
     }
 
     .post-card-tags{
@@ -193,11 +217,14 @@
     }
 
     .post-card-meta{
+        padding: 0 25px 25px;
+    }
+    .post-card:nth-child(4n+1):not(.no-image) .post-card-meta{
         padding: 0 40px 30px;
     }
 
-    .author-profile.image{
-        maring-right: 5px;
+    .author-profile-image{
+        margin-right: 5px;
         width: 25px;
         height: 25px;
         border-radius: 100%;
@@ -216,10 +243,10 @@
 
 
 
-    @media (max-width: 610px) {
+    @media (max-width: 500px) {
  
         .site-title {
-            font-size: 2rem;
+            font-size: 1.2rem;
             font-weight: 500;
         }
 
@@ -227,10 +254,21 @@
             font-size: 1rem;
             font-weight: 100;
         }
+
+        .post-card-title{
+            font-size: 2rem;
+        }
     }
 
 
-    @media (max-width: 610px) {
+    @media (max-width: 670px) {
+        .post-card:nth-child(4n+1):not(.no-image) .post-card-content{
+            flex: 0 1 375px;
+        }
+        .post-card{
+
+        }
+
         .site-title {
             font-size: 1.5rem;
             font-weight: 400;
@@ -239,6 +277,10 @@
         .site-subtitle {
             font-size: 1rem;
             font-weight: 100;
+        }
+
+        .post-card-title{
+            font-size: 2rem;
         }
     }
 </style>
@@ -258,11 +300,11 @@
             <!-- Loop Now then,  -->
             {% for p in posts %}
             <article class="post-card">
-                <a class="post-card-image-link" href="#">
+                <a class="post-card-image-link" href="{% url 'blog-viewpost' p.id %}">
                     <div class="post-card-image" style="background-image:url( '{{ p.img.url }}' )"></div>
                 </a>
                 <div class="post-card-content">
-                    <a class="post-card-content-link" href="">
+                    <a class="post-card-content-link" href="{% url 'blog-viewpost' p.id %}">
                         <header class="post-card-header">
                             <span class="post-card-tags">{{ p.tags}}</span>
                             <h2 class="post-card-title">{{ p.title }}</h2>
@@ -274,14 +316,15 @@
                         </section>
                     </a>
                     <footer class="post-card-meta">
-                            <img src="alt-wait" alt="" class="author-profile-image">
+                            <img src="{{ p.author.profile.image.url }}" alt="" class="author-profile-image">
                             <span class="post-card-author">
-                                <a href=""> {{ p.author }}</a>
+                                <a href="{% url 'blog-profile' %}"> {{ p.author }}</a>
                             </span>
                     </footer>
                 </div>
          
             </article>
+       
 
             {% endfor %}
             </div>
