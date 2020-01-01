@@ -36,10 +36,7 @@ def register(request):
 
 
 def profile(request,authorname=None):
-    if authorname == None:
-        print("NULL****************************")
-        return render(request,'users/profile.html')
-    
+
     u = User.objects.filter(username=authorname)
     p = Profile.objects.filter(username=u[0])[0]
 

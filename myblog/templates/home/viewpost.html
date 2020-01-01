@@ -198,13 +198,13 @@ h1{
         <img src="{{ posts.author.profile.image.url }}" alt="posts.author" class="author-profile-image">
         <section class="author-card-content">
           <h4 class="author-card-name">
-            <a href="{% url 'blog-profile' %}">{{ posts.author }}</a>
+            <a href="{% url 'blog-profile' posts.author %}">{{ posts.author }}</a>
           </h4>
           <p>Siddharth is an astrophile, programmer, Indian, undergrade student at Lovely Professional University, and an overall a nice guy.</p>
         </section>
       </section>
       <div class="post-full-footer-right">
-        <a href="{% url 'blog-profile' %}" class="author-card-button">Read More</a>
+        <a href="{% url 'blog-profile' posts.author %}" class="author-card-button">Read More</a>
       </div>
     </footer>
   </article>
