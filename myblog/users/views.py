@@ -9,6 +9,7 @@ from django.db.models.signals import post_save
 from .signals import create_profile, save_profile
 
 from home.models import Posts
+from users.models import Profile
 # Create your views here.
 
 def register(request):
@@ -34,9 +35,15 @@ def register(request):
     return render(request, 'users/register.html',{'registerform': registerform })
 
 
-def profile(request):
-    u = request.user
-    return render(request, 'users/profile.html',{'posts':Posts.objects.filter(author=u)})
+def profile(request,authorname=None):
+    if authorname == None:
+        print("NULL****************************")
+        return render(request,'users/profile.html')
+    
+    u = User.objects.filter(username=authorname)
+    p = Profile.objects.filter(username=u[0])[0]
+
+    return render(request, 'users/profile.html',{'posts':Posts.objects.filter(author=u[0]),'profile': p})
 
 
 

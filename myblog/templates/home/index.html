@@ -318,7 +318,7 @@
                     <footer class="post-card-meta">
                             <img src="{{ p.author.profile.image.url }}" alt="" class="author-profile-image">
                             <span class="post-card-author">
-                                <a href="{% url 'blog-profile' %}"> {{ p.author }}</a>
+                                <a href="{% url 'blog-profile' p.author %}"> {{ p.author }}</a>
                             </span>
                     </footer>
                 </div>
